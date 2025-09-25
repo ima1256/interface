@@ -1,13 +1,25 @@
-import { useState } from "react";
-import "./App.css";
-import ShareGlucoses from "./components/ShareGlucoses";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Demo from "./pages/Demo";
+import AgressorFoods from "./components/AgressorFoods";
+import Outreach from "./pages/Outreach";
+import Main from "./pages/Main";
+import Diabetes from "./pages/Diabetes";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <ShareGlucoses />
+      <Router>
+        <Routes>
+          {/* Ruta principal */}
+          <Route path="/" element={<Main />} />
+
+          {/* Otras rutas */}
+          <Route path="/demo" element={<Demo />} />
+          <Route path="/outreach" element={<Outreach />} />
+          <Route path="/diabetes" element={<Diabetes />} />
+          <Route path="/foods" element={<AgressorFoods />} />
+        </Routes>
+      </Router>
     </>
   );
 }
